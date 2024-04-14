@@ -28,22 +28,22 @@ type BlockView struct {
 }
 
 type BlockHeaderView struct {
-	Height                types.BlockHeight            `json:"height"`
-	EpochID               hash.CryptoHash              `json:"epoch_id"`
-	NextEpochID           hash.CryptoHash              `json:"next_epoch_id"`
-	Hash                  hash.CryptoHash              `json:"hash"`
-	PrevHash              hash.CryptoHash              `json:"prev_hash"`
-	PrevStateRoot         hash.CryptoHash              `json:"prev_state_root"`
-	ChunkReceiptsRoot     hash.CryptoHash              `json:"chunk_receipts_root"`
-	ChunkHeadersRoot      hash.CryptoHash              `json:"chunk_headers_root"`
-	ChunkTxRoot           hash.CryptoHash              `json:"chunk_tx_root"`
-	OutcomeRoot           hash.CryptoHash              `json:"outcome_root"`
-	ChunksIncluded        uint64                       `json:"chunks_included"`
-	ChallengesRoot        hash.CryptoHash              `json:"challenges_root"`
-	Timestamp             uint64                       `json:"timestamp"`         // milliseconds
-	TimestampNanosec      types.TimeNanos              `json:"timestamp_nanosec"` // nanoseconds, uint128
-	RandomValue           hash.CryptoHash              `json:"random_value"`
-	ValidatorProposals    []ValidatorStakeView         `json:"validator_proposals"`
+	Height            types.BlockHeight `json:"height"`
+	EpochID           hash.CryptoHash   `json:"epoch_id"`
+	NextEpochID       hash.CryptoHash   `json:"next_epoch_id"`
+	Hash              hash.CryptoHash   `json:"hash"`
+	PrevHash          hash.CryptoHash   `json:"prev_hash"`
+	PrevStateRoot     hash.CryptoHash   `json:"prev_state_root"`
+	ChunkReceiptsRoot hash.CryptoHash   `json:"chunk_receipts_root"`
+	ChunkHeadersRoot  hash.CryptoHash   `json:"chunk_headers_root"`
+	ChunkTxRoot       hash.CryptoHash   `json:"chunk_tx_root"`
+	OutcomeRoot       hash.CryptoHash   `json:"outcome_root"`
+	ChunksIncluded    uint64            `json:"chunks_included"`
+	ChallengesRoot    hash.CryptoHash   `json:"challenges_root"`
+	Timestamp         uint64            `json:"timestamp"`         // milliseconds
+	TimestampNanosec  types.TimeNanos   `json:"timestamp_nanosec"` // nanoseconds, uint128
+	RandomValue       hash.CryptoHash   `json:"random_value"`
+	//ValidatorProposals    []ValidatorStakeView         `json:"validator_proposals"`
 	ChunkMask             []bool                       `json:"chunk_mask"`
 	GasPrice              types.Balance                `json:"gas_price"`
 	RentPaid              types.Balance                `json:"rent_paid"`        // NOTE: deprecated - 2021-05-14
