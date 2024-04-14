@@ -3,7 +3,7 @@ package client
 import (
 	"context"
 
-	"github.com/eteu-technologies/near-api-go/pkg/types/hash"
+	"github.com/maogongyin/near-api-go/pkg/types/hash"
 )
 
 // https://docs.near.org/docs/api/rpc#chunk-details

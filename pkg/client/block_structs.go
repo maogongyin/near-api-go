@@ -1,10 +1,10 @@
 package client
 
 import (
-	"github.com/eteu-technologies/near-api-go/pkg/types"
-	"github.com/eteu-technologies/near-api-go/pkg/types/hash"
-	"github.com/eteu-technologies/near-api-go/pkg/types/key"
-	"github.com/eteu-technologies/near-api-go/pkg/types/signature"
+	"github.com/maogongyin/near-api-go/pkg/types"
+	"github.com/maogongyin/near-api-go/pkg/types/hash"
+	"github.com/maogongyin/near-api-go/pkg/types/key"
+	"github.com/maogongyin/near-api-go/pkg/types/signature"
 )
 
 type ChallengesResult = []SlashedValidator

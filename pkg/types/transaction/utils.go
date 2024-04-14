@@ -1,6 +1,6 @@
 package transaction
 
-import "github.com/eteu-technologies/near-api-go/pkg/types/key"
+import "github.com/maogongyin/near-api-go/pkg/types/key"
 
 func SignAndSerializeTransaction(keyPair key.KeyPair, txn Transaction) (blob string, err error) {
 	var stxn SignedTransaction

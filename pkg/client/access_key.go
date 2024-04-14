@@ -5,10 +5,10 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/eteu-technologies/near-api-go/pkg/client/block"
-	"github.com/eteu-technologies/near-api-go/pkg/jsonrpc"
-	"github.com/eteu-technologies/near-api-go/pkg/types"
-	"github.com/eteu-technologies/near-api-go/pkg/types/key"
+	"github.com/maogongyin/near-api-go/pkg/client/block"
+	"github.com/maogongyin/near-api-go/pkg/jsonrpc"
+	"github.com/maogongyin/near-api-go/pkg/types"
+	"github.com/maogongyin/near-api-go/pkg/types/key"
 )
 
 // https://docs.near.org/docs/api/rpc#view-access-key

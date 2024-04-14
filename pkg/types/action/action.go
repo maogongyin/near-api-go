@@ -7,8 +7,8 @@ import (
 	"github.com/eteu-technologies/borsh-go"
 	uint128 "github.com/eteu-technologies/golang-uint128"
 
-	"github.com/eteu-technologies/near-api-go/pkg/types"
-	"github.com/eteu-technologies/near-api-go/pkg/types/key"
+	"github.com/maogongyin/near-api-go/pkg/types"
+	"github.com/maogongyin/near-api-go/pkg/types/key"
 )
 
 type Action struct {

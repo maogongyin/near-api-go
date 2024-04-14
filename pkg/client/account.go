@@ -3,9 +3,9 @@ package client
 import (
 	"context"
 
-	"github.com/eteu-technologies/near-api-go/pkg/client/block"
-	"github.com/eteu-technologies/near-api-go/pkg/jsonrpc"
-	"github.com/eteu-technologies/near-api-go/pkg/types"
+	"github.com/maogongyin/near-api-go/pkg/client/block"
+	"github.com/maogongyin/near-api-go/pkg/jsonrpc"
+	"github.com/maogongyin/near-api-go/pkg/types"
 )
 
 // https://docs.near.org/docs/api/rpc#view-account

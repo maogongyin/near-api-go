@@ -1,6 +1,6 @@
 package client
 
-import "github.com/eteu-technologies/near-api-go/pkg/client/block"
+import "github.com/maogongyin/near-api-go/pkg/client/block"
 
 // HACK
 func blockIDArrayParams(block block.BlockCharacteristic) []interface{} {

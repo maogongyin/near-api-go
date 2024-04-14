@@ -4,12 +4,12 @@ import (
 	"context"
 	"errors"
 
-	"github.com/eteu-technologies/near-api-go/pkg/client/block"
-	"github.com/eteu-technologies/near-api-go/pkg/types"
-	"github.com/eteu-technologies/near-api-go/pkg/types/action"
-	"github.com/eteu-technologies/near-api-go/pkg/types/hash"
-	"github.com/eteu-technologies/near-api-go/pkg/types/key"
-	"github.com/eteu-technologies/near-api-go/pkg/types/transaction"
+	"github.com/maogongyin/near-api-go/pkg/client/block"
+	"github.com/maogongyin/near-api-go/pkg/types"
+	"github.com/maogongyin/near-api-go/pkg/types/action"
+	"github.com/maogongyin/near-api-go/pkg/types/hash"
+	"github.com/maogongyin/near-api-go/pkg/types/key"
+	"github.com/maogongyin/near-api-go/pkg/types/transaction"
 )
 
 type transactionCtx struct {

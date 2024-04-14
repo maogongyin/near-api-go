@@ -11,7 +11,7 @@ import (
 	ecdsa "github.com/decred/dcrd/dcrec/secp256k1/v4/ecdsa"
 	"github.com/mr-tron/base58"
 
-	"github.com/eteu-technologies/near-api-go/pkg/types/signature"
+	"github.com/maogongyin/near-api-go/pkg/types/signature"
 )
 
 type KeyPair struct {

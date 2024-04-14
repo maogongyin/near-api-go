@@ -3,7 +3,7 @@ package config_test
 import (
 	"testing"
 
-	"github.com/eteu-technologies/near-api-go/pkg/config"
+	"github.com/maogongyin/near-api-go/pkg/config"
 )
 
 func TestArchivalConfigLink(t *testing.T) {
