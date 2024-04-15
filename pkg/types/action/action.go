@@ -217,10 +217,10 @@ type ActionStake struct {
 	// Amount of tokens to stake.
 	Stake types.Balance `json:"stake"`
 	// Validator key which will be used to sign transactions on behalf of singer_id
-	PublicKey key.PublicKey `json:"public_key"`
+	PublicKey key.Base58PublicKey `json:"public_key"`
 }
 
-func NewStake(stake types.Balance, publicKey key.PublicKey) Action {
+func NewStake(stake types.Balance, publicKey key.Base58PublicKey) Action {
 	return Action{
 		Enum: borsh.Enum(ordStake),
 		Stake: ActionStake{
