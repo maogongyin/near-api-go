@@ -8,7 +8,10 @@ import (
 
 // https://docs.near.org/docs/api/rpc#chunk-details
 func (c *Client) ChunkDetails(ctx context.Context, chunkHash hash.CryptoHash) (res ChunkView, err error) {
-	_, err = c.doRPC(ctx, &res, "chunk", nil, []string{chunkHash.String()})
+	params := map[string]string{
+		"chunk_id": chunkHash.String(),
+	}
+	_, err = c.doRPC(ctx, &res, "chunk", nil, params)
 
 	return
 }
