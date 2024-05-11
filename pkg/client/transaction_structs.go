@@ -6,7 +6,6 @@ import (
 	"github.com/maogongyin/near-api-go/pkg/types"
 	"github.com/maogongyin/near-api-go/pkg/types/action"
 	"github.com/maogongyin/near-api-go/pkg/types/hash"
-	"github.com/maogongyin/near-api-go/pkg/types/key"
 	"github.com/maogongyin/near-api-go/pkg/types/signature"
 )
 
@@ -18,7 +17,6 @@ type TransactionStatus struct {
 
 type SignedTransactionView struct {
 	SignerID   types.AccountID           `json:"signer_id"`
-	PublicKey  key.Base58PublicKey       `json:"public_key"`
 	Nonce      types.Nonce               `json:"nonce"`
 	ReceiverID types.AccountID           `json:"receiver_id"`
 	Actions    []action.Action           `json:"actions"`
