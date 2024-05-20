@@ -25,7 +25,7 @@ type SignedTransactionView struct {
 }
 
 type FinalExecutionOutcomeView struct {
-	Status             TransactionStatus            `json:"status"`
+	//Status             TransactionStatus            `json:"status"`
 	Transaction        SignedTransactionView        `json:"transaction"`
 	TransactionOutcome ExecutionOutcomeWithIdView   `json:"transaction_outcome"`
 	ReceiptsOutcome    []ExecutionOutcomeWithIdView `json:"receipts_outcome"`
