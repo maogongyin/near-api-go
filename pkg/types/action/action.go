@@ -22,6 +22,7 @@ type Action struct {
 	AddKey         ActionAddKey
 	DeleteKey      ActionDeleteKey
 	DeleteAccount  ActionDeleteAccount
+	Delegate       interface{}
 }
 
 const (
@@ -33,6 +34,7 @@ const (
 	ordAddKey
 	ordDeleteKey
 	ordDeleteAccount
+	ordDelegate
 )
 
 var (
@@ -45,6 +47,7 @@ var (
 		"AddKey":         ordAddKey,
 		"DeleteKey":      ordDeleteKey,
 		"DeleteAccount":  ordDeleteAccount,
+		"Delegate":       ordDelegate,
 	}
 
 	simpleActions = map[string]bool{
@@ -90,6 +93,8 @@ func (a *Action) UnderlyingValue() interface{} {
 		return &a.DeleteKey
 	case ordDeleteAccount:
 		return &a.DeleteAccount
+	case ordDelegate:
+		return &a.Delegate
 	}
 
 	panic("unreachable")
