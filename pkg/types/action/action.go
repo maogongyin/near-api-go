@@ -22,7 +22,7 @@ type Action struct {
 	AddKey         ActionAddKey
 	DeleteKey      ActionDeleteKey
 	DeleteAccount  ActionDeleteAccount
-	Delegate       interface{}
+	Delegate       ActionDelegate
 }
 
 const (
@@ -330,3 +330,5 @@ func NewDeleteAccount(beneficiaryID types.AccountID) Action {
 		},
 	}
 }
+
+type ActionDelegate interface{}
