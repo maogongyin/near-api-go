@@ -331,4 +331,16 @@ func NewDeleteAccount(beneficiaryID types.AccountID) Action {
 	}
 }
 
-type ActionDelegate interface{}
+type ActionDelegate struct {
+	DelegateAction Delegate    `json:"delegate_action"`
+	Signature      interface{} `json:"signature"`
+}
+
+type Delegate struct {
+	SenderId       types.AccountID   `json:"sender_id"`
+	ReceiverId     types.AccountID   `json:"receiver_id"`
+	Actions        []Action          `json:"actions"`
+	Nonce          types.Nonce       `json:"nonce"`
+	MaxBlockHeight types.BlockHeight `json:"max_block_height"`
+	PublicKey      interface{}       `json:"public_key"`
+}
