@@ -40,7 +40,18 @@ type ReceiptView struct {
 	PredecessorID types.AccountID `json:"predecessor_id"`
 	ReceiverID    types.AccountID `json:"receiver_id"`
 	ReceiptID     hash.CryptoHash `json:"receipt_id"`
-	Receipt       json.RawMessage `json:"receipt"` // TODO: needs a type!
+	Receipt       Receipt         `json:"receipt"`
+}
+
+type Receipt struct {
+	Action struct {
+		SignerId string `json:"signer_id"`
+		//SignerPublicKey     string        `json:"signer_public_key"`
+		GasPrice string `json:"gas_price"`
+		//OutputDataReceivers []interface{} `json:"output_data_receivers"`
+		//InputDataIds        []interface{} `json:"input_data_ids"`
+		Actions []action.Action `json:"actions"`
+	} `json:"Action"`
 }
 
 type ExecutionOutcomeView struct {
