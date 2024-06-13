@@ -69,6 +69,7 @@ func (c *Client) CallRPC(ctx context.Context, method string, params interface{})
 	}
 
 	request.Header.Add("Content-Type", "application/json")
+	request.Header.Add("Referer", "https://app.ref.finance/")
 
 	response, err := c.client.Do(request)
 	if err != nil {
