@@ -2,6 +2,8 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
+	"github.com/eteu-technologies/borsh-go"
 
 	"github.com/maogongyin/near-api-go/pkg/types"
 	"github.com/maogongyin/near-api-go/pkg/types/action"
@@ -10,9 +12,106 @@ import (
 )
 
 type TransactionStatus struct {
-	SuccessValue     string          `json:"SuccessValue"`
-	SuccessReceiptID string          `json:"SuccessReceiptId"`
-	Failure          json.RawMessage `json:"Failure"` // TODO
+	Enum         borsh.Enum `borsh_enum:"true"`
+	NotStarted   StatusNotStarted
+	Started      StatusStarted
+	Failure      StatusFailure
+	SuccessValue StatusSuccessValue
+}
+
+type StatusNotStarted struct {
+}
+
+type StatusStarted struct {
+}
+
+type StatusFailure struct {
+	json.RawMessage
+}
+
+type StatusSuccessValue struct {
+	json.RawMessage
+}
+
+const (
+	ordNotStarted uint8 = iota
+	ordStarted
+	ordFailure
+	ordSuccessValue
+)
+
+var (
+	ordMappings = map[string]uint8{
+		"NotStarted":   ordNotStarted,
+		"Started":      ordStarted,
+		"Failure":      ordFailure,
+		"SuccessValue": ordSuccessValue,
+	}
+
+	simpleStatus = map[string]bool{
+		"NotStarted": true,
+		"Started":    true,
+	}
+)
+
+func (t *TransactionStatus) UnderlyingValue() interface{} {
+	switch uint8(t.Enum) {
+	case ordNotStarted:
+		return &t.NotStarted
+	case ordStarted:
+		return &t.Started
+	case ordFailure:
+		return &t.Failure
+	case ordSuccessValue:
+		return &t.SuccessValue
+	}
+
+	panic("unreachable")
+}
+
+func (t *TransactionStatus) UnmarshalJSON(b []byte) (err error) {
+	var obj map[string]json.RawMessage
+
+	// status can be either strings, or objects, so try deserializing into string first
+	var statusType string
+	if len(b) > 0 && b[0] == '"' {
+		if err = json.Unmarshal(b, &statusType); err != nil {
+			return
+		}
+
+		if _, ok := simpleStatus[statusType]; !ok {
+			err = fmt.Errorf("Status '%s' had no body", statusType)
+			return
+		}
+
+		obj = map[string]json.RawMessage{
+			statusType: json.RawMessage(`{}`),
+		}
+	} else {
+		if err = json.Unmarshal(b, &obj); err != nil {
+			return
+		}
+	}
+
+	if l := len(obj); l > 1 {
+		err = fmt.Errorf("status object contains invalid amount of keys (expected: 1, got: %d)", l)
+		return
+	}
+
+	for k := range obj {
+		statusType = k
+		break
+	}
+
+	ord := ordMappings[statusType]
+	*t = TransactionStatus{Enum: borsh.Enum(ord)}
+	ul := t.UnderlyingValue()
+
+	if err = json.Unmarshal(obj[statusType], ul); err != nil {
+		return
+	}
+
+	return nil
 }
 
 type SignedTransactionView struct {
