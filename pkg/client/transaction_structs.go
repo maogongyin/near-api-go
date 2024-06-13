@@ -11,6 +11,12 @@ import (
 	"github.com/maogongyin/near-api-go/pkg/types/signature"
 )
 
+type OutcomeStatus struct {
+	SuccessValue     string          `json:"SuccessValue"`
+	SuccessReceiptID string          `json:"SuccessReceiptId"`
+	Failure          json.RawMessage `json:"Failure"` // TODO
+}
+
 type TransactionStatus struct {
 	Enum         borsh.Enum `borsh_enum:"true"`
 	NotStarted   StatusNotStarted
@@ -159,7 +165,7 @@ type ExecutionOutcomeView struct {
 	GasBurnt    types.Gas         `json:"gas_burnt"`
 	TokensBurnt types.Balance     `json:"tokens_burnt"`
 	ExecutorID  types.AccountID   `json:"executor_id"`
-	Status      TransactionStatus `json:"status"`
+	Status      OutcomeStatus     `json:"status"`
 }
 
 type MerklePathItem struct {
